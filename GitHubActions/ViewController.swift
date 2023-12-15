@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("waeccl")
+        print("sdsds")
         // Do any additional setup after loading the view.
     }
 
