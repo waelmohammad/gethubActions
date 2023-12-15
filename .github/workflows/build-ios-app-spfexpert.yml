@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     branches: [main]
     
-on: [push]
+on: [push] 
 
 jobs:
   build_with_signing:
