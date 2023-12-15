@@ -6,7 +6,8 @@ target 'GitHubActions' do
   use_frameworks!
 
   # Pods for GitHubActions
-pod 'SwiftLint'
+  pod 'SwiftLint'
+  
   target 'GitHubActionsTests' do
     inherit! :search_paths
     # Pods for testing
