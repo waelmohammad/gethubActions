@@ -1,4 +1,4 @@
-name: WaelTest3
+name: ios SwiftLint
 
 on: [push]
 
