@@ -11,9 +11,4 @@ pod 'SwiftLint'
     inherit! :search_paths
     # Pods for testing
   end
-
-  target 'GitHubActionsUITests' do
-    # Pods for testing
-  end
-
 end
