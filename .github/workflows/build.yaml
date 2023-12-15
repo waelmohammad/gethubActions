@@ -1,0 +1,28 @@
+name: WaelTest3
+
+on: [push]
+
+jobs:
+  run_tests:
+    runs-on: macos-12
+    strategy:
+      matrix:
+        include:
+          - xcode: "14.2"
+            ios: "16.2"
+          - xcode: "14.2"
+            ios: "16.2"
+    name: test iOS (${{ matrix.ios }})
+    steps:
+    - uses: actions/checkout@v1
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.9.1
+    - name: CocoaPod Install
+      run: pod install
+    - name: Lint code using SwiftLint
+      run: swiftlint lint --reporter github-actions-logging
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app && /usr/bin/xcodebuild -version
+    - name: Run unit tests
+      run: xcodebuild clean build analyze test -scheme GitHibCource -project GitHibCource.xcodeproj  -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}' 
+      
