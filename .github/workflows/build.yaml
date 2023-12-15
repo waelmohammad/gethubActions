@@ -17,6 +17,8 @@ jobs:
       uses: styfle/cancel-workflow-action@0.9.1
     - name: CocoaPod Install
       run: pod install
+    - name: Lint code using SwiftLint
+      run: swiftlint lint --reporter github-actions-logging
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app && /usr/bin/xcodebuild -version
     - name: Run unit tests
