@@ -14,7 +14,6 @@ class ViewController: UIViewController {
         print("erere dfdfdddxcxc")
         // Do any additional setup after loading the view.
     }
-
     func validateValue(value: Int) -> Bool {
         if value > 10 {
             return true
