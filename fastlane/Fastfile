@@ -44,7 +44,11 @@ platform :ios do
       in_house: false
     )
     
-    increment_build_number(xcodeproj: "GitHubActions.xcodeproj")
+
+    increment_build_number(
+      build_number: latest_testflight_build_number + 1,
+      xcodeproj: "GitHubActions.xcodeproj"
+    )
     
     cocoapods(
       clean_install: true
