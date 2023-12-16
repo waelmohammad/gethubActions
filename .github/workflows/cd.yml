@@ -16,7 +16,7 @@ jobs:
       matrix:
         include:
           - xcode: "13.4.1"
-            ios: "15.5"
+            ios: "16.2"
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
