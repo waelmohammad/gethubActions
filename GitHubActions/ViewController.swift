@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var account: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
         print("erere dfdfdddxcxc")

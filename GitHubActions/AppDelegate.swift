@@ -32,4 +32,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // to the discarded scenes, as they will not return.
     }
 }
-

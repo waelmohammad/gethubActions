@@ -169,6 +169,7 @@
 				8343F2C92B2C619500647F9D /* Sources */,
 				8343F2CA2B2C619500647F9D /* Frameworks */,
 				8343F2CB2B2C619500647F9D /* Resources */,
+				831403222B2E5A390050892B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -287,6 +288,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		831403222B2E5A390050892B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		D68C19F0D2E99F9EEACF9B89 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
