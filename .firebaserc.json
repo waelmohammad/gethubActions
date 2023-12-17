@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "GitHubActions": {
+      "hosting": {
+        "GitHubActions-test": [
+          "wail84n@gmail.com"
+        ]
+      }
+    }
+  }
+}
