@@ -19,6 +19,6 @@ jobs:
           bundle install --path vendor/bundle
 
       - name: Deploy to Firebase
-        run: bundle exec fastlane deploy_to_firebase
+        run: bundle exec fastlane distribute
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }} # Ensure you have this secret set in your repository
