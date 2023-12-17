@@ -36,7 +36,7 @@ jobs:
           xcodebuild clean build \
             -workspace GitHubActions.xcworkspace \
             -scheme GitHubActions \
-            -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" # Adjust the destination as needed
+            -destination "platform=iOS Simulator,OS=16.2,name=iPhone 11" # Adjust the destination as needed
 
       - name: Deploy to Firebase App Distribution
         run: firebase appcheck:install && firebase distribution:deploy --groups testers
