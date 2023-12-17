@@ -36,4 +36,5 @@ jobs:
             -destination "platform=iOS Simulator,OS=16.2,name=iPhone 11" # Adjust the destination as needed
 
       - name: Deploy to Firebase App Distribution
-        run: firebase distribution:deploy
+        run: firebase appdistribution:distribute
+
