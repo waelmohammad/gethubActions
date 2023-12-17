@@ -20,6 +20,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
+      - name: upload artifact to Firebase App Distribution
+          uses: wzieba/Firebase-Distribution-Github-Action@v1
+          with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+          groups: testers
+          file: app/build/outputs/apk/release/app-release-unsigned.ipa
       - name: Deploy iOS Beta to TestFlight via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
