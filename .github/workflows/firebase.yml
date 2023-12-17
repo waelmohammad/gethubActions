@@ -1,0 +1,39 @@
+name: Deploy to Firebase
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+
+      - name: Install Firebase Tools
+        run: npm install -g firebase-tools
+
+      - name: Authenticate with Firebase
+        run: firebase login --no-interactive --token "$FIREBASE_TOKEN"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build iOS App
+        run: |
+          xcodebuild clean build \
+            -workspace YourApp.xcworkspace \
+            -scheme YourAppScheme \
+            -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" # Adjust the destination as needed
+      - name: Deploy to Firebase
+        run: |
+          firebase appcheck:install
+          firebase distribution:deploy
