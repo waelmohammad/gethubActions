@@ -38,7 +38,7 @@ jobs:
       - name: Deploy to Firebase App Distribution
         run: |
           echo "$FIREBASE_SERVICE_ACCOUNT" > firebase-service-account.json
-          firebase appdistribution:distribute ./build/Products/Release-iphoneos/GitHubActions.ipa --service-account firebase-service-account.json
+          export FIREBASE_ADMIN_CREDENTIALS=$(cat firebase-service-account.json
+          firebase appdistribution:distribute ./build/Products/Release-iphoneos/GitHubActions.ipa
         env:
          FIREBASE_CLI_SUPPRESS_PROMPTS: 1
-
