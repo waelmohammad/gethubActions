@@ -1,36 +1,22 @@
-name: Deploy to Firebase
-
-on:
-  push:
-    branches:
-      - firebase-dist
-
 jobs:
-  build-ios:
+  deploy:
     runs-on: macos-latest
 
     steps:
-      # build here
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: GitHubActions.ipa
-          path: ./build # Path to your IPA file will usually be root of the project (if you use Fastlane)
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-  distribute-ios:
-    needs: build-ios # This is important
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v2
         with:
-          name: GitHubActions.ipa
+          ruby-version: 3.x # Adjust the Ruby version as needed
 
-      - name: Upload artifact to Firebase App Distribution
-        uses: wzieba/Firebase-Distribution-Github-Action@v1
-        with:
-          appId: ${{secrets.FIREBASE_IOS_APP_ID}}
-          file: GitHubActions.ipa
-          groups: testers
-          token: ${{secrets.FIREBASE_TOKEN}}
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install --path vendor/bundle
+
+      - name: Deploy to Firebase
+        run: bundle exec fastlane deploy_to_firebase
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }} # Ensure you have this secret set in your repository

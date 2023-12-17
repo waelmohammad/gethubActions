@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 My awesome app
 
+### ios deploy_to_firebase
+
+```sh
+[bundle exec] fastlane ios deploy_to_firebase
+```
+
+
+
 ### ios closed_beta
 
 ```sh

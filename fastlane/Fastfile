@@ -43,6 +43,20 @@ platform :ios do
         )
   end
 
+  lane :deploy_to_firebase do
+    # Add any pre-deployment steps here, such as building your iOS app
+
+    # Upload the IPA file to Firebase App Distribution
+    firebase_app_distribution(
+      app: "1:622279777854:ios:0bcc281f2099d8fc0e3b6f", # Your Firebase App ID
+      groups: "testers", # Replace with your distribution group name
+      release_notes: "Release notes for this version from Wall",
+      ipa_path: "./GitHubActions.ipa"
+    )
+
+    # Add any post-deployment steps here
+  end
+
   lane :closed_beta do
     keychain_name = TEMP_KEYCHAIN_USER
     keychain_password = TEMP_KEYCHAIN_PASSWORD
