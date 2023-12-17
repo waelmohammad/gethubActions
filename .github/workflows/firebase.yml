@@ -3,7 +3,7 @@ name: Deploy to Firebase
 on:
   push:
     branches:
-      - master
+      - firebase-dist
 
 jobs:
   deploy:
@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
+      - name: Print Current Directory
+        run: pwd
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -26,6 +29,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: /Users/wael/Desktop/gitHubActions2/gethubActions/GitHubActions
 
       - name: Build iOS App
         run: |
