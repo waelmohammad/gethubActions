@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: macos-latest
 
+    env:
+      FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120 # Adjust the timeout value (in seconds) as needed
+      FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5    # Adjust the number of retries as needed
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
