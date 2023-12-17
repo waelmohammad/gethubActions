@@ -38,11 +38,6 @@ jobs:
             -destination "platform=iOS Simulator,OS=16.2,name=iPhone 11" # Adjust the destination as needed
 
       - name: Deploy to Firebase App Distribution
-        run: |
-          echo "$FIREBASE_SERVICE_ACCOUNT" > firebase-service-account.json
-          export FIREBASE_ADMIN_CREDENTIALS=$(cat firebase-service-account.json)
-          firebase appdistribution:distribute ./build/Products/Release-iphoneos/GitHubActions.ipa
-        env:
-         FIREBASE_CLI_SUPPRESS_PROMPTS: 1
+        run: firebase appdistribution:distribute ./build/Products/Release-iphoneos/GitHubActions.ipa --token ${{ secrets.FIREBASE_TOKEN }}
 
 
