@@ -1,6 +1,10 @@
 name: "Build iOS app"
     
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build_with_signing:

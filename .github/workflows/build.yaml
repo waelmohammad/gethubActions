@@ -1,6 +1,10 @@
 name: ios SwiftLint
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   run_tests:
