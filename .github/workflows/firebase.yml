@@ -22,7 +22,7 @@ jobs:
         run: npm install -g firebase-tools
 
       - name: Authenticate with Firebase
-        run: firebase login --no-interactive
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.FIREBASE_TOKEN }}" > ~/.npmrc
 
       - name: Install Dependencies
         run: npm install
