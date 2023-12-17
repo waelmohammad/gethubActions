@@ -14,8 +14,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: YourApp.ipa
-          path: YourApp.ipa # Path to your IPA file will usually be root of the project (if you use Fastlane)
+          name: GitHubActions.ipa
+          path: ./build # Path to your IPA file will usually be root of the project (if you use Fastlane)
 
   distribute-ios:
     needs: build-ios # This is important
@@ -31,6 +31,6 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{secrets.FIREBASE_IOS_APP_ID}}
-          file: YourApp.ipa
+          file: GitHubActions.ipa
           groups: testers
           token: ${{secrets.FIREBASE_TOKEN}}
