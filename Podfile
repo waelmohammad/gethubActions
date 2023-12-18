@@ -7,7 +7,7 @@ target 'GitHubActions' do
 
   # Pods for GitHubActions
   pod 'SwiftLint'
-  pod 'Firebase/Analytics', '8.8.0'
+ 
   
   target 'GitHubActionsTests' do
     inherit! :search_paths
