@@ -48,6 +48,11 @@ platform :ios do
      #  gym
         # build_ios_app is a built-in fastlane action.
 
+    increment_build_number(
+      build_number: latest_testflight_build_number + 1,
+      xcodeproj: "GitHubActions.xcodeproj"
+    )
+
   cocoapods(
       clean_install: true
     )
