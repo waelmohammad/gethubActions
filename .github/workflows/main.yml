@@ -1,0 +1,14 @@
+name: Manual Trigger Workflow
+
+on:
+  repository_dispatch:
+    types:
+      - manual-trigger
+
+jobs:
+  manual-trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger workflow
+        run: echo "Triggered manually"
