@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "f77105fdfc9299f4301c78fc3e7f116aa2011bfb3776df22b8784a8bdc78eb82"
+build_start_time: [1702917687, 551852941]
+build_end_time: [1702917688, 504698991]
+inputs:
+  "/Users/wael/Desktop/gitHubActions2/gethubActions/GitHubActions/GitHubActions/AppDelegate.swift": [1702906901, 358387947]
+  "/Users/wael/Desktop/gitHubActions2/gethubActions/GitHubActions/GitHubActions/SceneDelegate.swift": [1702765409, 492235183]
+  "/Users/wael/Desktop/gitHubActions2/gethubActions/GitHubActions/GitHubActions/ViewController.swift": [1702814603, 477652311]
