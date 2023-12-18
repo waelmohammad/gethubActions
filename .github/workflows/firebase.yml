@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
+      - name: Increment build number
+        run: fastlane increment_build_number
       - name: Deploy iOS to Firebase via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
