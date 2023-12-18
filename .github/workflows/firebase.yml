@@ -12,8 +12,8 @@ jobs:
     runs-on: macos-latest
 
     env:
-      FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120 # Adjust the timeout value (in seconds) as needed
-      FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5    # Adjust the number of retries as needed
+      FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
+      FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
@@ -23,7 +23,7 @@ jobs:
         with:
           lane: distribute
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }} # Ensure you have this secret set in your repository
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           APP_STORE_CONNECT_TEAM_ID: '${{ secrets.APP_STORE_CONNECT_TEAM_ID }}'
           DEVELOPER_APP_ID: '${{ secrets.DEVELOPER_APP_ID }}'
           DEVELOPER_APP_IDENTIFIER: '${{ secrets.DEVELOPER_APP_IDENTIFIER }}'
