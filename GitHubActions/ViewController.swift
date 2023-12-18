@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     var account: Int?
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ccccc")
+        print("ccsdsdsccc")
         // Do any additional setup after loading the view.
     }
     func validateValue(value: Int) -> Bool {
