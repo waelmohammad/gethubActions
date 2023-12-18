@@ -20,12 +20,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v1
-      - name: Install Firebase Tools
-        run: npm install -g firebase-tools
-      - name: Deploy to Firebase
-        run: |
-          firebase appcheck:install
-          firebase distribution:deploy --token ${{ secrets.FIREBASE_TOKEN }}
       - name: Deploy iOS Beta to TestFlight via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
