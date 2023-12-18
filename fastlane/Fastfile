@@ -33,7 +33,7 @@ end
 platform :ios do
     desc "My awesome app"
   lane :distribute do
-       gym
+     #  gym
         # build_ios_app is a built-in fastlane action.
 
         release = firebase_app_distribution(
