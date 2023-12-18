@@ -76,7 +76,7 @@ platform :ios do
 
         release = firebase_app_distribution(
             app: "1:622279777854:ios:0bcc281f2099d8fc0e3b6f",
-            testers: "wail84n@gail.com, wall.ezz.almohammad@gmail.com",
+            groups: "testers",
             release_notes: "Lots of amazing new features to test out!"
         )
   end
