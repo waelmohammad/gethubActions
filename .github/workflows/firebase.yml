@@ -38,3 +38,12 @@ jobs:
           APPLE_KEY_ID: '${{ secrets.APPLE_KEY_ID }}'
           APPLE_ISSUER_ID: '${{ secrets.APPLE_ISSUER_ID }}'
           APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
+
+      # Add the following steps to set the completion status as an output
+      - name: Set workflow status
+        id: set_status
+        run: echo "##[set-output name=conclusion;]${{ job.status }}"
+      
+      - name: Fail the workflow on error
+        if: failure()
+        run: exit 1
