@@ -76,7 +76,7 @@ platform :ios do
     )
 
   # Fetch the commit messages
-  commit_messages = sh("git log --pretty=format:'%s' -n 5").split("\n")
+  commit_messages = sh("git log --pretty=format:'%s' -n 1").split("\n")
 
   # Join the commit messages to create dynamic release notes
   release_notes = commit_messages.join('\n')
