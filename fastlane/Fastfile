@@ -75,10 +75,16 @@ platform :ios do
       }
     )
 
+  # Fetch the commit messages
+  commit_messages = sh("git log --pretty=format:'%s' -n 5").split("\n")
+
+  # Join the commit messages to create dynamic release notes
+  release_notes = commit_messages.join('\n')
+
         release = firebase_app_distribution(
             app: "1:622279777854:ios:0bcc281f2099d8fc0e3b6f",
             groups: "testers",
-            release_notes: "Lots of amazing new features to test out!"
+            release_notes: release_notes
         )
   end
 
