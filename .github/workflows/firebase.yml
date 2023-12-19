@@ -4,9 +4,14 @@ on:
   push:
     branches:
       - firebase-dist
+  workflow_run:
+    workflows: ["Manual Deploy"]
+    types:
+      - completed
   repository_dispatch:
     types:
       - manual-trigger
+
 jobs:
   deploy:
     runs-on: macos-latest
@@ -14,11 +19,14 @@ jobs:
     env:
       FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
       FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v1
+
       - name: Increment build number
         run: fastlane increment_build_number_fb
+
       - name: Deploy iOS to Firebase via Fastlane
         uses: maierj/fastlane-action@v1.4.0
         with:
@@ -48,3 +56,11 @@ jobs:
       - name: Fail the workflow on error
         if: failure()
         run: exit 1
+
+# Add a new workflow for manual triggering
+# This will run only when manually triggered from GitHub UI
+  manual_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Manual deploy triggered
+        run: echo "Manual deploy triggered"
