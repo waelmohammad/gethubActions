@@ -24,6 +24,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v1
 
+      # Run the jobs locally
+      - name: Run Local Jobs
+        run: |
+          ./run_local_jobs.sh
+      # Consider adding error handling here if needed
+
+      # Continue with the rest of the original workflow steps
       - name: Increment build number
         run: fastlane increment_build_number_fb
 
@@ -48,11 +55,19 @@ jobs:
           APPLE_ISSUER_ID: '${{ secrets.APPLE_ISSUER_ID }}'
           APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
 
+      # Set workflow status based on local job results
       - name: Set workflow status
         id: set_status
-        run: echo "##[set-output name=conclusion;]${{ job.status }}"
+        run: |
+          if [ -e "local_results.txt" ]; then
+            echo "Local job was successful!"
+          else
+            echo "Local job failed!"
+            exit 1
+          fi
+        shell: bash
       
+      # Fail the workflow on error
       - name: Fail the workflow on error
-        if: failure()
+        if: steps.set_status.outputs.conclusion == 'failure'
         run: exit 1
-
