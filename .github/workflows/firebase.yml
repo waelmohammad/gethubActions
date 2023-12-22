@@ -66,7 +66,13 @@ jobs:
             exit 1
           fi
         shell: bash
-      
+
+      # Debugging Info
+      - name: Debugging Info
+        run: |
+          ls -la
+          cat local_results.txt
+
       # Fail the workflow on error
       - name: Fail the workflow on error
         if: steps.set_status.outputs.conclusion == 'failure'
