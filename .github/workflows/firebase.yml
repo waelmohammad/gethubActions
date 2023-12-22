@@ -11,7 +11,7 @@ jobs:
     runs-on:
       - self-hosted
     #macos-latest
-
+ 
     env:
       FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
       FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
