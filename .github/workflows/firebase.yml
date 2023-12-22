@@ -1,15 +1,21 @@
 name: Deploy to Firebase
 
 on:
-  workflow_dispatch:
-  
+  push:
+    branches:
+      - firebase-dist
+  workflow_run:
+    workflows: ["Manual Deploy"]
+    types:
+      - completed
+  repository_dispatch:
+    types:
+      - manual-trigger
 
 jobs:
   deploy_to_firebase:
-    runs-on:
-      - self-hosted
-    #macos-latest
- 
+    runs-on: self-hosted
+
     env:
       FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
       FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
@@ -42,7 +48,6 @@ jobs:
           APPLE_ISSUER_ID: '${{ secrets.APPLE_ISSUER_ID }}'
           APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
 
-      # Add the following steps to set the completion status as an output
       - name: Set workflow status
         id: set_status
         run: echo "##[set-output name=conclusion;]${{ job.status }}"
@@ -51,10 +56,3 @@ jobs:
         if: failure()
         run: exit 1
 
-## Add a new workflow for manual triggering
-## This will run only when manually triggered from GitHub UI
-#  manual_deploy:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Manual deploy triggered
-#        run: echo "Manual deploy triggered"
