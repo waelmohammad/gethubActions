@@ -35,6 +35,15 @@ jobs:
           ./run_local_jobs.sh
       # Consider adding error handling here if needed
 
+      - name: CocoaPod Install
+        run: pod install
+      - name: Lint code using SwiftLint
+        run: swiftlint lint --reporter github-actions-logging
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app && /usr/bin/xcodebuild -version
+      - name: Run unit tests
+        run: xcodebuild clean build analyze test -scheme GitHubActions -project GitHubActions.xcodeproj  -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}'
+      
       # Continue with the rest of the original workflow steps
       - name: Increment build number
         run: fastlane increment_build_number_fb
