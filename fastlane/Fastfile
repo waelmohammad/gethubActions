@@ -88,11 +88,17 @@ platform :ios do
         )
   end
 
+lane :run_tests do
+  scan(scheme: "GitHubActions", device: "iPhone 12", clean: false)
+end
+
+lane :run_unit_tests do
+  scan(scheme: "GitHubActions", device: "iPhone 12", clean: false, only_testing: "GitHubActionsTests")
+end
+
 lane :increment_build_number_fb do
 build_number = get_build_number(xcodeproj: "GitHubActions.xcodeproj")
 end 
-
-
 
   lane :deploy_to_firebase do
     # Add any pre-deployment steps here, such as building your iOS app
