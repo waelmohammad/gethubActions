@@ -93,7 +93,7 @@ lane :increment_build_number_fb do
   scheme = "GitHubActions"
 
   # Get the current build number from the Xcode project
-  current_build_number = get_build_number(xcodeproj: "./GitHubActions.xcodeproj", target: scheme)
+  current_build_number = sh("xcrun agvtool what-version -terse").strip
   UI.message("Current Build Number: #{current_build_number}")
 
   # Increment the build number
@@ -101,7 +101,11 @@ lane :increment_build_number_fb do
   UI.message("Incremented Build Number: #{incremented_build_number}")
 
   # Increment the build number in the Xcode project
-  increment_build_number(build_number: incremented_build_number.to_s, xcodeproj: "./GitHubActions.xcodeproj", target: scheme)
+  sh("xcrun agvtool new-version -all #{incremented_build_number}")
+
+  # Commit the updated build number back to the repository
+  sh("git add -A")
+  sh("git commit -m 'Increment build number'")
 end
 
   lane :deploy_to_firebase do
