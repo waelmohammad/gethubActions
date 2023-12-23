@@ -1,5 +1,12 @@
-#!/bin/bash
+# Inside run_local_jobs.sh
 
-# This is a placeholder. Replace this with your actual CI/CD logic.
-echo "Running local jobs..."
+# Log some information
+echo "Executing local job..."
+
+# Your local job script commands go here...
+
+# Log the completion of the job
 echo "Local job completed successfully!"
+
+# Create local_results.txt
+echo "Local job completed successfully!" > local_results.txt
