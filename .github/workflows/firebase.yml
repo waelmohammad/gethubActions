@@ -40,11 +40,17 @@ jobs:
       # Consider adding error handling here if needed
 
       - name: CocoaPod Install
+        id: run_cocoaPod-install_step
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'false'
         run: pod install
       - name: Lint code using SwiftLint
+        id: run_swiftLint_step
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'false'
         run: swiftlint lint --reporter github-actions-logging
         
       - name: Run Unit tests
+        id: run_unit_tests_step
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'false'
         run: bundle exec fastlane run_unit_tests
       # Continue with the rest of the original workflow steps
       - name: Increment build number
