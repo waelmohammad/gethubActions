@@ -12,9 +12,3 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Display System Information
-        run: |
-          # Print basic system information
-          uname -a
-          df -h
