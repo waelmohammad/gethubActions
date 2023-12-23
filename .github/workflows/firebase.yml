@@ -8,9 +8,11 @@ on:
     workflows: ["Manual Deploy"]
     types:
       - completed
-  repository_dispatch:
-    types:
-      - manual-trigger
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Set to true to deploy'
+        required: true
 
 jobs:
   deploy_to_firebase:
@@ -37,7 +39,7 @@ jobs:
       # Conditionally deploy only when the workflow input 'deploy' is set to 'true'
       - name: Deploy iOS to Firebase via Fastlane
         id: deploy_step
-        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'Manual Deploy' && github.event.workflow_run.inputs.deploy == 'false'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy == 'true'
         uses: maierj/fastlane-action@v1.4.0
         with:
           lane: distribute
