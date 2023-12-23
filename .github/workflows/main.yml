@@ -1,0 +1,20 @@
+name: Self-Hosted Runner Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  self_hosted_example:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Display System Information
+        run: |
+          # Print basic system information
+          uname -a
+          df -h
