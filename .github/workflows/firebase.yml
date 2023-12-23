@@ -10,8 +10,11 @@ on:
       - completed
   workflow_dispatch:
     inputs:
-      deploy:
-        description: 'Set to true to deploy'
+      uploadToFirebase:
+        description: 'Set true to upload build to firebase'
+        required: true
+      uploadToTestflight:
+        description: 'Set true to upload build to testflight'
         required: true
 
 jobs:
@@ -39,7 +42,7 @@ jobs:
       # Conditionally deploy only when the workflow input 'deploy' is set to 'true'
       - name: Deploy iOS to Firebase via Fastlane
         id: deploy_step
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.deploy == 'true'
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'true'
         uses: maierj/fastlane-action@v1.4.0
         with:
           lane: distribute

@@ -23,6 +23,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 My awesome app
 
+### ios increment_build_number_fb
+
+```sh
+[bundle exec] fastlane ios increment_build_number_fb
+```
+
+
+
 ### ios deploy_to_firebase
 
 ```sh
