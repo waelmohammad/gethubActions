@@ -89,14 +89,11 @@ platform :ios do
   end
 
 lane :increment_build_number_fb do
-  # Specify the path to your Xcode workspace
-  workspace_path = "GitHubActions.xcworkspace"
-  
   # Specify the scheme (target) for which you want to increment the build number
   scheme = "GitHubActions"
 
   # Get the current build number from the Xcode project
-  current_build_number = get_version_number(xcodeproj: "GitHubActions.xcodeproj", target: scheme)
+  current_build_number = get_build_number(xcodeproj: "GitHubActions.xcodeproj", target: scheme)
   UI.message("Current Build Number: #{current_build_number}")
 
   # Increment the build number
