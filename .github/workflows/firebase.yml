@@ -1,79 +1,20 @@
-name: Deploy to Firebase
+name: Self-Hosted Runner Example
 
 on:
   push:
     branches:
       - firebase-dist
-  workflow_run:
-    workflows: ["Manual Deploy"]
-    types:
-      - completed
-  repository_dispatch:
-    types:
-      - manual-trigger
 
 jobs:
-  deploy_to_firebase:
+  self_hosted_example:
     runs-on: self-hosted
-
-    env:
-      FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
-      FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
-      # Run the jobs locally
-      - name: Run Local Jobs
+      - name: Display System Information
         run: |
-          ./run_local_jobs.sh
-      # Consider adding error handling here if needed
-
-      # Continue with the rest of the original workflow steps
-      - name: Increment build number
-        run: fastlane increment_build_number_fb
-
-      - name: Deploy iOS to Firebase via Fastlane
-        uses: maierj/fastlane-action@v1.4.0
-        with:
-          lane: distribute
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          APP_STORE_CONNECT_TEAM_ID: '${{ secrets.APP_STORE_CONNECT_TEAM_ID }}'
-          DEVELOPER_APP_ID: '${{ secrets.DEVELOPER_APP_ID }}'
-          DEVELOPER_APP_IDENTIFIER: '${{ secrets.DEVELOPER_APP_IDENTIFIER }}'
-          DEVELOPER_PORTAL_TEAM_ID: '${{ secrets.DEVELOPER_PORTAL_TEAM_ID }}'
-          FASTLANE_APPLE_ID: '${{ secrets.FASTLANE_APPLE_ID }}'
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: '${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}'
-          MATCH_PASSWORD: '${{ secrets.MATCH_PASSWORD }}'
-          GIT_AUTHORIZATION: '${{ secrets.GIT_AUTHORIZATION }}'
-          PROVISIONING_PROFILE_SPECIFIER: '${{ secrets.PROVISIONING_PROFILE_SPECIFIER }}'
-          TEMP_KEYCHAIN_PASSWORD: '${{ secrets.TEMP_KEYCHAIN_PASSWORD }}'
-          TEMP_KEYCHAIN_USER: '${{ secrets.TEMP_KEYCHAIN_USER }}'
-          APPLE_KEY_ID: '${{ secrets.APPLE_KEY_ID }}'
-          APPLE_ISSUER_ID: '${{ secrets.APPLE_ISSUER_ID }}'
-          APPLE_KEY_CONTENT: '${{ secrets.APPLE_KEY_CONTENT }}'
-
-      # Set workflow status based on local job results
-      - name: Set workflow status
-        id: set_status
-        run: |
-          if [ -e "local_results.txt" ]; then
-            echo "Local job was successful!"
-          else
-            echo "Local job failed!"
-            exit 1
-          fi
-        shell: bash
-
-      # Debugging Info
-      - name: Debugging Info
-        run: |
-          ls -la
-          cat local_results.txt
-
-      # Fail the workflow on error
-      - name: Fail the workflow on error
-        if: steps.set_status.outputs.conclusion == 'failure'
-        run: exit 1
+          # Print basic system information
+          uname -a
+          df -h
