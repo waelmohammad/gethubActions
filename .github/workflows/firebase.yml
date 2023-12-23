@@ -41,11 +41,11 @@ jobs:
 
       - name: CocoaPod Install
         id: run_cocoaPod-install_step
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'false'
+        if: github.event.inputs.uploadToFirebase == 'false'
         run: pod install
       - name: Lint code using SwiftLint
         id: run_swiftLint_step
-        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'false'
+        if: github.event.inputs.uploadToFirebase == 'false'
         run: swiftlint lint --reporter github-actions-logging
         
       - name: Run Unit tests
