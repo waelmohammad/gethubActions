@@ -44,7 +44,7 @@ jobs:
       - name: Lint code using SwiftLint
         run: swiftlint lint --reporter github-actions-logging
       - name: Run unit tests
-        run: xcodebuild clean build analyze test -scheme GitHubActions -project GitHubActions.xcodeproj  -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}'
+        run: xcodebuild clean build analyze test -scheme GitHubActions -project GitHubActions.xcworkspace  -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}'
       
       # Continue with the rest of the original workflow steps
       - name: Increment build number
