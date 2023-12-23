@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05D7D5539B016D420F046A4C /* Pods_GitHubActions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8976856EB41D5C4B2C36D858 /* Pods_GitHubActions.framework */; };
 		23029680132020D8FA3943A8 /* Pods_GitHubActionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDD68B43D647036EBC4EB76 /* Pods_GitHubActionsTests.framework */; };
 		8314032D2B2E61690050892B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8314032C2B2E61690050892B /* GoogleService-Info.plist */; };
 		8343F2D12B2C619500647F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2D02B2C619500647F9D /* AppDelegate.swift */; };
@@ -20,7 +19,6 @@
 		8343F2F22B2C619700647F9D /* GitHubActionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2F12B2C619700647F9D /* GitHubActionsUITests.swift */; };
 		8343F2F42B2C619700647F9D /* GitHubActionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2F32B2C619700647F9D /* GitHubActionsUITestsLaunchTests.swift */; };
 		8343F3012B2C693800647F9D /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F3002B2C693800647F9D /* ViewControllerTest.swift */; };
-		8384B05E2B37785F00AF7629 /* FBLPromises.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8384B05D2B37785F00AF7629 /* FBLPromises.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8384B05E2B37785F00AF7629 /* FBLPromises.framework in Frameworks */,
-				05D7D5539B016D420F046A4C /* Pods_GitHubActions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
