@@ -48,6 +48,8 @@ jobs:
         run: bundle exec fastlane run_unit_tests
       # Continue with the rest of the original workflow steps
       - name: Increment build number
+        id: deploy_step
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.uploadToFirebase == 'true'
         run: fastlane increment_build_number_fb
 
       # Conditionally deploy only when the workflow input 'deploy' is set to 'true'
