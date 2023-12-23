@@ -34,10 +34,10 @@ jobs:
       - name: Increment build number
         run: fastlane increment_build_number_fb
 
-      # Conditionally deploy only when the workflow input is set to 'true'
+      # Conditionally deploy only when the workflow input 'deploy' is set to 'true'
       - name: Deploy iOS to Firebase via Fastlane
         id: deploy_step
-        if: github.event_name == 'workflow_run' && github.event.workflow_run.event == 'manual'
+        if: github.event_name == 'workflow_run' && github.event.workflow_run.name == 'Manual Deploy' && github.event.workflow_run.inputs.deploy == 'true'
         uses: maierj/fastlane-action@v1.4.0
         with:
           lane: distribute
