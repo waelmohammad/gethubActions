@@ -20,7 +20,11 @@ on:
 jobs:
   deploy_to_firebase:
     runs-on: self-hosted
-
+    strategy:
+      matrix:
+        include:
+          - xcode: "13.4.1"
+            ios: "15.5"
     env:
       FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT: 120
       FASTLANE_XCODEBUILD_SETTINGS_RETRIES: 5
