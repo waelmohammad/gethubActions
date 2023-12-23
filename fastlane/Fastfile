@@ -89,9 +89,13 @@ platform :ios do
   end
 
 lane :increment_build_number_fb do
-  current_build_number = get_build_number.to_i  # Convert the build number to an integer
-  incremented_build_number = current_build_number + 1  # Increment the build number
-  increment_build_number(build_number: incremented_build_number.to_s)  # Convert it back to a string and pass to increment_build_number
+  current_build_number = get_build_number.to_i
+  UI.message("Current Build Number: #{current_build_number}")
+
+  incremented_build_number = current_build_number + 1
+  UI.message("Incremented Build Number: #{incremented_build_number}")
+
+  increment_build_number(build_number: incremented_build_number.to_s)
 end
 
   lane :deploy_to_firebase do
