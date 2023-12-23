@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23029680132020D8FA3943A8 /* Pods_GitHubActionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDD68B43D647036EBC4EB76 /* Pods_GitHubActionsTests.framework */; };
 		8314032D2B2E61690050892B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8314032C2B2E61690050892B /* GoogleService-Info.plist */; };
 		8343F2D12B2C619500647F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2D02B2C619500647F9D /* AppDelegate.swift */; };
 		8343F2D32B2C619500647F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2D22B2C619500647F9D /* SceneDelegate.swift */; };
@@ -75,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23029680132020D8FA3943A8 /* Pods_GitHubActionsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
