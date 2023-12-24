@@ -88,10 +88,6 @@ platform :ios do
         )
   end
 
-lane :run_tests do
-  scan(scheme: "GitHubActions", device: "iPhone 12", clean: false)
-end
-
 lane :run_unit_tests do
   scan(scheme: "GitHubActions", device: "iPhone 12", clean: false, only_testing: "GitHubActionsTests")
 end
