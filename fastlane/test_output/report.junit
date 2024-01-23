@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='GitHubActionsTests.xctest' tests='5' failures='0'>
+  <testsuite name='GitHubActionsTests.GitHubActionsTests' tests='2' failures='0'>
+    <testcase classname='GitHubActionsTests.GitHubActionsTests' name='testExample' time='0.002'/>
+    <testcase classname='GitHubActionsTests.GitHubActionsTests' name='testPerformanceExample' time='0.373'/>
+  </testsuite>
+  <testsuite name='GitHubActionsTests.ViewControllerTest' tests='3' failures='0'>
+    <testcase classname='GitHubActionsTests.ViewControllerTest' name='testExample' time='0.002'/>
+    <testcase classname='GitHubActionsTests.ViewControllerTest' name='testPerformanceExample' time='0.254'/>
+    <testcase classname='GitHubActionsTests.ViewControllerTest' name='testValidateValue' time='0.001'/>
+  </testsuite>
+</testsuites>

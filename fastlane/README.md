@@ -23,6 +23,22 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 My awesome app
 
+### ios run_tests
+
+```sh
+[bundle exec] fastlane ios run_tests
+```
+
+
+
+### ios run_unit_tests
+
+```sh
+[bundle exec] fastlane ios run_unit_tests
+```
+
+
+
 ### ios increment_build_number_fb
 
 ```sh
