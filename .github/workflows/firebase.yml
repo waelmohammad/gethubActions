@@ -5,7 +5,7 @@ on:
     branches:
       - firebase-dist
   workflow_run:
-    workflows: ["Manual Deploy"]
+    workflows: ["Manual Deploydd"]
     types:
       - completed
   workflow_dispatch:
@@ -44,10 +44,6 @@ jobs:
 
       - name: CocoaPod Install
         run: pod install
-      - name: Select Xcode
-        run: sudo xcode-select -switch /Applications/Xcode_${{ matrix.xcode }}.app && /usr/bin/xcodebuild -version
-      - name: Run unit tests
-        run: xcodebuild clean build analyze test -scheme GitHubActions -project GitHubActions.xcodeproj  -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}'
       - name: Lint code using SwiftLint
         run: swiftlint lint --reporter github-actions-logging
       - name: Run Unit tests
