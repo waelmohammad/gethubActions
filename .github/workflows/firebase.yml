@@ -19,7 +19,7 @@ on:
 
 jobs:
   deploy_to_firebase:
-    runs-on: waelLabel
+    runs-on: macos-12  #waelLabel
     strategy:
       matrix:
         include:
@@ -48,7 +48,7 @@ jobs:
         run: xcodebuild clean build analyze test -scheme GitHubActions -project GitHubActions.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}'
       - name: Lint code using SwiftLint
         run: swiftlint lint --reporter github-actions-logging
-      - name: Run Unit tests2
+      - name: Run Unit tests
         run: bundle exec fastlane run_unit_tests
       # Continue with the rest of the original workflow steps
       - name: Increment build number
