@@ -20,6 +20,7 @@
 		8343F2F22B2C619700647F9D /* GitHubActionsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2F12B2C619700647F9D /* GitHubActionsUITests.swift */; };
 		8343F2F42B2C619700647F9D /* GitHubActionsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F2F32B2C619700647F9D /* GitHubActionsUITestsLaunchTests.swift */; };
 		8343F3012B2C693800647F9D /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343F3002B2C693800647F9D /* ViewControllerTest.swift */; };
+		83E31C582B6C3E0900EB986F /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83E31C572B6C3E0900EB986F /* FirebaseCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		8343F2F32B2C619700647F9D /* GitHubActionsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubActionsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8343F3002B2C693800647F9D /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
 		8384B05D2B37785F00AF7629 /* FBLPromises.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBLPromises.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83E31C572B6C3E0900EB986F /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8976856EB41D5C4B2C36D858 /* Pods_GitHubActions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubActions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A616CD6EB791C5CD6C823133 /* Pods-GitHubActionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubActionsTests.release.xcconfig"; path = "Target Support Files/Pods-GitHubActionsTests/Pods-GitHubActionsTests.release.xcconfig"; sourceTree = "<group>"; };
 		F92A3307BEC409987918DEC8 /* Pods-GitHubActions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubActions.debug.xcconfig"; path = "Target Support Files/Pods-GitHubActions/Pods-GitHubActions.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83E31C582B6C3E0900EB986F /* FirebaseCore.framework in Frameworks */,
 				3E9DDC43EABCF29C1CA92CD3 /* Pods_GitHubActionsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +152,7 @@
 		B36FD242545107C61649F617 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83E31C572B6C3E0900EB986F /* FirebaseCore.framework */,
 				8384B05D2B37785F00AF7629 /* FBLPromises.framework */,
 				8976856EB41D5C4B2C36D858 /* Pods_GitHubActions.framework */,
 				4FDD68B43D647036EBC4EB76 /* Pods_GitHubActionsTests.framework */,
