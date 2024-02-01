@@ -19,7 +19,7 @@ on:
 
 jobs:
   deploy_to_firebase:
-    runs-on: self-hosted
+    runs-on: waelLabel
     strategy:
       matrix:
         include:
@@ -96,5 +96,4 @@ jobs:
       - name: Fail the workflow on error
         if: steps.set_status.outputs.conclusion == 'failure'
         run: exit 1
- 
  
