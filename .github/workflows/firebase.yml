@@ -19,7 +19,7 @@ on:
 
 jobs:
   deploy_to_firebase:
-    runs-on: macos-12
+    runs-on: waelLabel
     strategy:
       matrix:
         include:
@@ -44,12 +44,11 @@ jobs:
 
       - name: CocoaPod Install
         run: pod install
-      - name: Build iOS App
-        run: |
-          xcodebuild -workspace GitHubActions.xcworkspace -scheme GitHubActions -destination 'platform=iOS Simulator,name=iPhone 12' build
+      - name: Run unit tests
+        run: xcodebuild clean build analyze test -scheme GitHubActions -project GitHubActions.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 11,OS=${{ matrix.ios }}'
       - name: Lint code using SwiftLint
         run: swiftlint lint --reporter github-actions-logging
-      - name: Run Unit tests
+      - name: Run Unit tests2
         run: bundle exec fastlane run_unit_tests
       # Continue with the rest of the original workflow steps
       - name: Increment build number
