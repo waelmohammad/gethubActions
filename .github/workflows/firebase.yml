@@ -19,7 +19,7 @@ on:
 
 jobs:
   deploy_to_firebase:
-    runs-on: macos-12  #waelLabel
+    runs-on: waelLabel
     strategy:
       matrix:
         include:
