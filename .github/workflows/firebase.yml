@@ -2,8 +2,10 @@ name: Deploy to Firebase
 
 on:
   push:
-    branches:
-      - firebase-dist
+    # branches:
+    #   - firebase-dist
+    tags:
+      - 'vf*'
   workflow_run:
     workflows: ["Manual Deploydd"]
     types:
