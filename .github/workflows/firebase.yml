@@ -21,7 +21,7 @@ on:
 
 jobs:
   deploy_to_firebase:
-    runs-on: waelLabel
+    runs-on: self-hosted
     strategy:
       matrix:
         include:
